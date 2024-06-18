@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_upload_image"
+        android:title="Image upload"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_camera"
+        android:title="Open Camera"
+        app:showAsAction="never" />
+
+</menu>

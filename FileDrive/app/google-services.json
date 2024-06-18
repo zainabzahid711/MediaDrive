@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1020556832585",
+    "firebase_url": "https://smart-gallery-final-default-rtdb.firebaseio.com",
+    "project_id": "smart-gallery-final",
+    "storage_bucket": "smart-gallery-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020556832585:android:c2f087e23d29533802b498",
+        "android_client_info": {
+          "package_name": "com.example.filedrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020556832585-p37tvpmc2mjdurt8jkfmh6vr7i3nkeib.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.filedrive",
+            "certificate_hash": "3ffdd72e2c78a7c0c21752c7964449d1cfd9715b"
+          }
+        },
+        {
+          "client_id": "1020556832585-68ogf32g2c9lb4eanpssuulk5a5jrp23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxlIbd9Zc2egrEfw5xOF8nclwE5XaA1mE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020556832585-68ogf32g2c9lb4eanpssuulk5a5jrp23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
