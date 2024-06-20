@@ -7,36 +7,83 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.filedrive.R
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.widget.Button
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.util.*
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FilesFregment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FilesFregment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var storageReference: StorageReference
+    private var fileUri: Uri? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        storageReference = FirebaseStorage.getInstance().reference
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_files_fregment, container, false)
+        val view = inflater.inflate(R.layout.fragment_files_fregment, container, false)
+
+        val buttonChooseFile: Button = view.findViewById(R.id.button_choose_file)
+        val buttonUploadFile: Button = view.findViewById(R.id.button_upload_file)
+
+        buttonChooseFile.setOnClickListener {
+            chooseFile()
+        }
+
+        buttonUploadFile.setOnClickListener {
+            uploadFile()
+        }
+
+        return view
     }
+
+
+    private fun chooseFile() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "*/*"
+        resultLauncher.launch(intent)
+    }
+
+    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            fileUri = result.data?.data
+            view?.findViewById<Button>(R.id.button_upload_file)?.visibility = View.VISIBLE
+        }
+    }
+
+    private fun uploadFile() {
+        fileUri?.let {
+            val fileName = UUID.randomUUID().toString()
+            val fileRef = storageReference.child("uploads/$fileName")
+
+            fileRef.putFile(it)
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "File Uploaded Successfully", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(requireContext(), "File Upload Failed", Toast.LENGTH_SHORT).show()
+                }
+        } ?: run {
+            Toast.makeText(requireContext(), "No file selected", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 
     companion object {
         /**

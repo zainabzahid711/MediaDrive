@@ -6,16 +6,21 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.FilesFregment"
+    android:background="@color/Grey"
     >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
+        android:id="@+id/button_choose_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Files fragment"
-        android:textSize="30dp"
-        android:textColor="@color/GreenColor"
-        />
+        android:text="Choose File" />
+
+    <Button
+        android:id="@+id/button_upload_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload File"
+        android:visibility="gone" />
 
 </LinearLayout>
