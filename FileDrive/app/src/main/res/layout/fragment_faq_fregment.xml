@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.FaqFregment"
+    android:background="@color/Grey"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Frequently Asked questions"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/GreenColor"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Here you'll find answer to questions we get asked the most about!"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="How many pictures can I store?"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="There's no such limit to the images storage"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Is there any limit to images Size?"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="There's no such limit to the images size you can upload any image size."
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Are my pictures secured?"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="yes completelty you can see our terms and conditions to privacy policy"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Can I store my files and videos?"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Will available in update"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Is this paid?"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="NO its free of cost"
+        android:textSize="20dp"
+        android:textColor="@color/GreenColor"
+        />
+
+
+</LinearLayout>

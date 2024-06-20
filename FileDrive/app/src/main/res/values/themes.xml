@@ -2,24 +2,40 @@
     <!-- Base application theme. -->
     <style name="Theme.FileDrive" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/TextRed</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/GreenColor</item>              <!-- AppBar background color -->
+        <item name="colorPrimaryDark">@color/white</item>               <!-- Status bar color -->
+        <item name="colorAccent">@color/TextTransparent</item>         <!-- Accent color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryDark</item> <!-- Status bar color -->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item> <!-- Overflow menu style -->
     </style>
+
+    <!-- AppBar theme -->
+    <style name="Theme.FileDrive.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="colorPrimary">@color/GreenColor</item>  <!-- AppBar background color -->
+    </style>
+
+    <!-- Popup theme -->
+    <style name="Theme.FileDrive.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:popupBackground">@color/black</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColorPrimary">@color/GreenColor</item>
+    </style>
+
+    <!-- Overflow menu style -->
+    <style name="OverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:popupBackground">@color/black</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColorPrimary">@color/GreenColor</item>
+    </style>
+
 
     <style name="Theme.FileDrive.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.FileDrive.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+<!--    <style name="Theme.FileDrive.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-    <style name="Theme.FileDrive.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<!--    <style name="Theme.FileDrive.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 </resources>

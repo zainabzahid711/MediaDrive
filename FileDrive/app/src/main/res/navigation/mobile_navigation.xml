@@ -24,6 +24,18 @@
         tools:layout="@layout/fragment_favourite" />
 
     <fragment
+        android:id="@+id/nav_Faq"
+        android:name="com.example.filedrive.ui.FaqFregment"
+        android:label="Faqs"
+        tools:layout="@layout/fragment_faq_fregment"/>
+
+    <fragment
+        android:id="@+id/nav_Files"
+        android:name="com.example.filedrive.ui.FilesFregment"
+        android:label="Files"
+        tools:layout="@layout/fragment_files_fregment"/>
+
+    <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.filedrive.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_bin"
