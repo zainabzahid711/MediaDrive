@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.FilesFregment"
+    tools:context=".ui.FilesFragment"
     android:background="@color/Grey"
     >
 
@@ -14,13 +14,24 @@
         android:id="@+id/button_choose_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/GreenColor"
+        android:textColor="@color/white"
         android:text="Choose File" />
 
     <Button
         android:id="@+id/button_upload_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Upload File"
+        android:backgroundTint="@color/GreenColor"
         android:visibility="gone" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_files"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
