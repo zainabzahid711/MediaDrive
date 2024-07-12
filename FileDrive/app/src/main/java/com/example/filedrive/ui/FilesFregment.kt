@@ -1,6 +1,7 @@
 package com.example.filedrive.ui
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -89,6 +90,34 @@ class FilesFregment : Fragment() {
         }
     }
 
+
+    object FileUploadUtil {
+
+        fun uploadFile(fileUri: Uri, context: Context, onSuccess: () -> Unit) {
+            val auth = FirebaseAuth.getInstance()
+
+            if (auth.currentUser != null) {
+                val uid = auth.currentUser!!.uid
+                val storageRef = FirebaseStorage.getInstance().reference
+                val fileRef = storageRef.child("uploads/$uid/${fileUri.lastPathSegment}")
+
+                fileRef.putFile(fileUri)
+                    .addOnSuccessListener {
+                        Log.d("FileUploadUtil", "File uploaded successfully: ${fileUri.lastPathSegment}")
+                        // Call onSuccess to list files after successful upload
+                        onSuccess()
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.e("FileUploadUtil", "Failed to upload file: ${exception.message}")
+                        Toast.makeText(context, "Failed to upload file: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                Toast.makeText(context, "User not authenticated", Toast.LENGTH_SHORT).show()
+                Log.e("FileUploadUtil", "User not authenticated")
+            }
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         listFiles()
@@ -105,15 +134,17 @@ class FilesFregment : Fragment() {
                 .addOnSuccessListener { listResult ->
                     filesList.clear()
                     Log.d("FilesFragment", "Files found: ${listResult.items.size}")
+
                     for (item in listResult.items) {
-                        item.downloadUrl.addOnSuccessListener { uri ->
-                            Log.d("FilesFragment", "File: ${item.name}, URL: $uri")
-                            filesList.add(FileItem(item.name, uri.toString()))
-                            filesAdapter.notifyDataSetChanged()
-                        }.addOnFailureListener { exception ->
-                            Log.e("FilesFragment", "Failed to get download URL: ${exception.message}")
-                        }
+                        Log.d("FilesFragment", "File: ${item.name}")
+                        // Only log the file name without getting the download URL
+                        filesList.add(FileItem(item.name, "")) // Add file name without URL
                     }
+
+                    filesAdapter.notifyDataSetChanged()
+
+                    // Optional: Display a Toast indicating the files were listed successfully
+                    Toast.makeText(requireContext(), "Files listed successfully", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(requireContext(), "Failed to list files: ${exception.message}", Toast.LENGTH_SHORT).show()
@@ -124,6 +155,10 @@ class FilesFregment : Fragment() {
             Log.e("FilesFragment", "User not authenticated")
         }
     }
+
+
+
+
 
     companion object {
         @JvmStatic
